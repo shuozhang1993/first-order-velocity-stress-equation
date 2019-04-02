@@ -59,7 +59,7 @@ MPIFC = mpif90
 CFLAG = -g -I $(DIR_INC) -lfftw3 -lm -O3
 
 # object depandency
-object_mod = gene.o tool.o fft.o model.o mod_aco.o
+object_mod = gene.o tool.o model.o mod_aco.o
 object_mig = gene.o tool.o fft.o mig.o mig_aco.o
 object_cfwi = gene.o tool.o fft.o amf.o cfwi.o cfwi_aco.o
 object_rfwi = gene.o tool.o fft.o rfwi.o rfwi_aco.o
@@ -90,10 +90,10 @@ $(DIR_TMP)/xcorr.o : $(DIR_LIB)/xcorr.c $(DIR_INC)/gene.h $(DIR_INC)/tool.h $(DI
 
 #----------complier forward modeling  operater----------#
 
-$(DIR_TMP)/model.o : $(DIR_LIB)/model.c $(DIR_INC)/gene.h $(DIR_INC)/tool.h $(DIR_INC)/fft.h $(DIR_INC)/model.h
+$(DIR_TMP)/model.o : $(DIR_LIB)/model.c $(DIR_INC)/gene.h $(DIR_INC)/tool.h  $(DIR_INC)/model.h
 	$(MPICC) $(CFLAG) -c $< -o $@
 
-$(DIR_TMP)/mod_aco.o : $(DIR_SRC)/mod_aco.c $(DIR_INC)/gene.h $(DIR_INC)/tool.h $(DIR_INC)/fft.h $(DIR_INC)/model.h
+$(DIR_TMP)/mod_aco.o : $(DIR_SRC)/mod_aco.c $(DIR_INC)/gene.h $(DIR_INC)/tool.h $(DIR_INC)/model.h
 	$(MPICC) $(CFLAG) -c $< -o $@
 
 #----------complier reverse time migration operator----------#

@@ -14,25 +14,25 @@
 
 struct matrix
 {
-	int x;
-	int y;
-	int z;
+	int x; float dx;
+	int y; float dy;
+	int z; float dz;
 	float *value;
 };
 
 struct cpxmat
 {
-	int x;
-	int y;
-	int z;
+	int x; float dx;
+	int y; float dy;
+	int z; float dz;
 	float *real;
 	float *imag;
 };
 
 struct location
 {
-	int x;
-	int y;
+	int x; float dx;
+	int y; float dy;
 	int *value;
 };
 
@@ -109,19 +109,19 @@ void location_read(struct location mat,char filename[]);
 /*Data structure creation and deletion*/
 
 /*Create matrix*/
-void create_matrix(int a,int b,int c,struct matrix *mat);
+void create_matrix(int a,float da,int b,float db,int c,float dc,struct matrix *mat);
 
 /*delete matrix*/
 void delete_matrix(struct matrix *mat);
 
 /*Create complex matrix*/
-void create_cpxmat(int a,int b,int c,struct cpxmat *cpx);
+void create_cpxmat(int a,float da,int b,float db,int c,float dc,struct cpxmat *cpx);
 
 /*Delete complex matrix*/
 void delete_cpxmat(struct cpxmat *cpx);
 
 /*Create location*/
-void create_location(int a,int b,struct location *sta);
+void create_location(int a,float da,int b,float db,struct location *sta);
 
 /*Delete location*/
 void delete_location(struct location *sta);
